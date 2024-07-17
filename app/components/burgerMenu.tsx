@@ -8,7 +8,7 @@ export default function burgerMenu() {
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 10 10"
 			stroke="#eee"
-			stroke-width=".6"
+			strokeWidth=".6"
 			fill="rgba(0,0,0,0)"
 			stroke-linecap="round"
 			style={{ width: "40px" }}

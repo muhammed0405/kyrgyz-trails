@@ -25,7 +25,8 @@
 }
 
 .socialIcon {
-	display: inline-block;
+	display: grid;
+	place-items: center;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
@@ -33,7 +34,9 @@
 	border: 1px solid #fff;
 	border-radius: 50%;
 	transition: all 0.3s ease;
-
+	color: white;
+	font-size: 30px;
+	padding: 0.5rem;
 	&:hover {
 		background-color: #fff;
 		color: #000;

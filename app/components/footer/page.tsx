@@ -2,6 +2,11 @@
 
 import React from "react"
 import styles from "../../styles/footer.module.scss"
+import {
+	FaFacebookSquare,
+	FaInstagramSquare,
+	FaTelegram,
+} from "react-icons/fa"
 
 const Footer = () => {
 	return (
@@ -20,13 +25,13 @@ const Footer = () => {
 					<h3>Следите за нами</h3>
 					<div className={styles.socialIcons}>
 						<a href="#" className={styles.socialIcon}>
-							FB
+							<FaFacebookSquare />
 						</a>
 						<a href="#" className={styles.socialIcon}>
-							IG
+							<FaInstagramSquare />
 						</a>
 						<a href="#" className={styles.socialIcon}>
-							TW
+							<FaTelegram />
 						</a>
 					</div>
 				</div>
