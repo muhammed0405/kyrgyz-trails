@@ -2,6 +2,7 @@
 
 import React from "react"
 import styles from "./styles/page.module.scss"
+import Search from './components/search/search'
 
 export default function Home() {
 	return (
@@ -11,10 +12,7 @@ export default function Home() {
 				<p>
 					Планируйте свое путешествие, бронируйте туры и делитесь впечатлениями
 				</p>
-				<div className={styles.searchBar}>
-					<input type="text" placeholder="Куда вы хотите поехать?" />
-					<button>Искать</button>
-				</div>
+				<Search/>
 			</section>
 
 			<section className={styles.featuredDestinations}>
