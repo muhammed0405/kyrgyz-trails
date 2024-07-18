@@ -1,8 +1,8 @@
 /** @format */
 
 import React from "react"
-import Header from "./components/header/page"
-import Footer from "./components/footer/page"
+import Header from "./components/commont/header/page"
+import Footer from "./components/commont/footer/page"
 import "./styles/globals.scss"
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body>
 				<Header />
-				<main>{children}</main>
+				<main id="main">{children}</main>
 				<Footer />
 			</body>
 		</html>

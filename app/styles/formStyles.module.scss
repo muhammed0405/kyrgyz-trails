@@ -1,0 +1,61 @@
+/** @format */
+
+$form-bg-color: #fff;
+$form-text-color: #000;
+$form-border-color: #ccc;
+$form-focus-border-color: #000;
+$form-btn-bg-color: #000;
+$form-btn-text-color: #fff;
+$form-btn-hover-bg-color: #333;
+
+.formContainer {
+	background-color: $form-bg-color;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 300px;
+	margin: 0 auto;
+
+	h2 {
+		margin-bottom: 1rem;
+		color: $form-text-color;
+	}
+
+	.formGroup {
+		margin-bottom: 1rem;
+
+		label {
+			display: block;
+			margin-bottom: 0.5rem;
+			color: $form-text-color;
+		}
+
+		input {
+			width: 100%;
+			padding: 0.5rem;
+			border: 1px solid $form-border-color;
+			border-radius: 4px;
+			transition: border-color 0.3s;
+
+			&:focus {
+				border-color: $form-focus-border-color;
+				outline: none;
+			}
+		}
+	}
+
+	button {
+		width: 100%;
+		padding: 0.75rem;
+		border: none;
+		border-radius: 4px;
+		background-color: $form-btn-bg-color;
+		color: $form-btn-text-color;
+		cursor: pointer;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: $form-btn-hover-bg-color;
+		}
+	}
+}

@@ -10,7 +10,7 @@ export default function burgerMenu() {
 			stroke="#eee"
 			strokeWidth=".6"
 			fill="rgba(0,0,0,0)"
-			stroke-linecap="round"
+			strokeLinecap="round"
 			style={{ width: "40px" }}
 		>
 			<path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">

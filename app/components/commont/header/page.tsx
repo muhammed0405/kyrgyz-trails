@@ -2,8 +2,8 @@
 
 import React from "react"
 import Link from "next/link"
-import styles from "../../styles/header.module.scss"
-import Logo from "../../assets/img/logo.png"
+import styles from "../../../styles/header.module.scss"
+import Logo from "../../../assets/img/logo.png"
 import Image from "next/image"
 import BurgerMenu from "../burgerMenu"
 
@@ -28,10 +28,10 @@ const Header = () => {
 					</button>
 				</div>
 				<div className={styles.authLinks}>
-					<Link href="/login" className={styles.loginBtn}>
+					<Link href="/auth/login" className={styles.loginBtn}>
 						Войти
 					</Link>
-					<Link href="/register" className={styles.registerBtn}>
+					<Link href="/auth/register" className={styles.registerBtn}>
 						Регистрация
 					</Link>
 				</div>
