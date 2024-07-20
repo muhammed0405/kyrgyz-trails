@@ -44,6 +44,10 @@ $form-btn-hover-bg-color: #333;
 		}
 	}
 
+	p {
+		color: $form-text-color;
+	}
+
 	button {
 		width: 100%;
 		padding: 0.75rem;

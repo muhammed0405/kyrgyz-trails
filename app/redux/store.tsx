@@ -5,6 +5,7 @@ import { apiSlice } from "./services/appSlice"
 export const makeStore = () =>
 	configureStore({
 		reducer: {
+			[apiSlice.reducerPath]: apiSlice.reducer,
 			auth: authReducer
 		},
 		devTools: process.env.NODE_ENV !== 'production',
