@@ -27,6 +27,6 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"app/components/common/burgerMenu.tsx"
-	],
+, "app/api/(auth)/login/page.tsx"	],
 	"exclude": ["node_modules"]
 }

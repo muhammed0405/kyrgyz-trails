@@ -20,6 +20,7 @@ const Header = () => {
 					<Link href="/pages/tours">Туры</Link>
 					<Link href="/pages/hotels">Отели</Link>
 					<Link href="/pages/restaurants">Рестораны</Link>
+					<Link href="/pages/users">Юзеры</Link>
 				</div>
 
 				<div>

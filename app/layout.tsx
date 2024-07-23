@@ -2,11 +2,11 @@
 
 import type { Metadata } from "next"
 import React from "react"
-import Footer from "./components/common/footer/page"
+import Providers from "./Redux/CustomProvider"
+
+import "./styles/global.scss"
 import Header from "./components/common/header/page"
-import Provider from "./redux/provider"
-import "./styles/globals.scss"
-import { SetUp } from "./components/utils"
+import Footer from "./components/common/footer/page"
 export const metadata: Metadata = {
 	title: "Kyrgyz Trails",
 	description: "Your guide to Kyrgyzstan",
@@ -19,12 +19,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<Provider>
-					<SetUp />
+				<Providers>
 					<Header />
 					<main id="main">{children}</main>
 					<Footer />
-				</Provider>
+				</Providers>
 			</body>
 		</html>
 	)
