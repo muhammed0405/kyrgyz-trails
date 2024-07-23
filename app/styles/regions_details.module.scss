@@ -1,0 +1,105 @@
+/**
+ * RegionPage.module.scss
+ *
+ * @format
+ */
+
+$font-stack: "Helvetica Neue", sans-serif;
+$background-color: #000;
+$text-color: #fff;
+$primary-color: #fff;
+$secondary-color: #bbb;
+$border-color: #333;
+$hover-color: #555;
+
+.container {
+	background-color: $background-color;
+	color: $text-color;
+	font-family: $font-stack;
+	padding: 20px;
+	min-height: 100vh;
+}
+
+.title {
+	font-size: 2.5em;
+	color: $primary-color;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.image {
+	border: 2px solid $border-color;
+	margin: 0 auto 20px;
+	display: block;
+}
+
+.shortDescription {
+	font-size: 1.2em;
+	color: $secondary-color;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.rating-reviews {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	gap: 20px;
+}
+
+.rating,
+.reviews {
+	font-weight: bold;
+	color: $primary-color;
+}
+
+.section-title {
+	font-size: 2em;
+	color: $primary-color;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+	position: relative;
+}
+
+.section-title::after {
+	content: "";
+	display: block;
+	width: 50px;
+	height: 3px;
+	background: $primary-color;
+	margin: 10px auto 0;
+}
+
+.tour {
+	margin-bottom: 30px;
+	padding: 20px;
+	border: 1px solid $border-color;
+	background-color: $hover-color;
+	transition: background-color 0.3s, transform 0.3s;
+	text-align: center;
+}
+
+.tour:hover {
+	background-color: $primary-color;
+	transform: scale(1.05);
+	color: $background-color;
+}
+
+.tour-title {
+	font-size: 1.5em;
+	color: $primary-color;
+	margin-bottom: 10px;
+}
+
+.tour-description,
+.tour-duration,
+.tour-price {
+	font-size: 1.1em;
+	color: $secondary-color;
+	margin-bottom: 5px;
+}
+
+.tour-description {
+	margin-bottom: 15px;
+}

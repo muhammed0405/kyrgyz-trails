@@ -3,7 +3,11 @@
 import React, { useEffect } from "react"
 import Search from "./components/search/search"
 import styles from "./styles/page.module.scss"
+import { useTypedSelectorHook } from "./Redux/customHooks/useTypedSelectorHook"
+import Link from "next/link"
+
 export default function Home() {
+	const regions = useTypedSelectorHook(state => state.tours.tours)
 	return (
 		<div className={styles.homePage}>
 			<section className={styles.hero}>
@@ -28,17 +32,15 @@ export default function Home() {
 			</section>
 
 			<section className={styles.popularTours}>
-				<h2>Популярные туры</h2>
+				<h2>Все области</h2>
 				<div className={styles.tourGrid}>
-					{[
-						"Горные приключения",
-						"Культурный тур",
-						"Конные прогулки",
-						"Экотур",
-					].map(tour => (
-						<div key={tour} className={styles.tourCard}>
-							<h3>{tour}</h3>
-						</div>
+					{regions.map(tour => (
+						<Link href={`/pages/regions/${tour.tours.id}`} key={tour.id}>
+							<div key={tour} className={styles.tourCard}>
+								<h3>{tour.name}</h3>
+								<h3>{tour.tours.id} id</h3>
+							</div>
+						</Link>
 					))}
 				</div>
 			</section>
