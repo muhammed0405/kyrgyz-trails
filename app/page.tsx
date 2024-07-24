@@ -8,6 +8,10 @@ import Link from "next/link"
 
 export default function Home() {
 	const regions = useTypedSelectorHook(state => state.tours.tours)
+
+	useEffect(() => {
+		console.log(regions)
+	}, [])
 	return (
 		<div className={styles.homePage}>
 			<section className={styles.hero}>
@@ -35,7 +39,10 @@ export default function Home() {
 				<h2>Все области</h2>
 				<div className={styles.tourGrid}>
 					{regions.map(tour => (
-						<Link href={`/pages/regions/${tour.tours.id}`} key={tour.id}>
+						<Link
+							href={`/pages/regions/${tour.tours.id}`}
+							key={tour.id}
+						>
 							<div key={tour} className={styles.tourCard}>
 								<h3>{tour.name}</h3>
 								<h3>{tour.tours.id} id</h3>

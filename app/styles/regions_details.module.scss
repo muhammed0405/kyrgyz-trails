@@ -1,105 +1,110 @@
-/**
- * RegionPage.module.scss
- *
- * @format
- */
-
-$font-stack: "Helvetica Neue", sans-serif;
-$background-color: #000;
-$text-color: #fff;
-$primary-color: #fff;
-$secondary-color: #bbb;
-$border-color: #333;
-$hover-color: #555;
+/** @format */
 
 .container {
-	background-color: $background-color;
-	color: $text-color;
-	font-family: $font-stack;
-	padding: 20px;
-	min-height: 100vh;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+	font-family: "Arial", sans-serif;
+	color: #333;
+	background-color: #f8f8f8;
 }
 
 .title {
-	font-size: 2.5em;
-	color: $primary-color;
-	margin-bottom: 20px;
-	text-align: center;
+	font-size: 3rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 2rem;
+	border-bottom: 4px solid #000;
+	padding-bottom: 1rem;
 }
 
 .image {
-	border: 2px solid $border-color;
-	margin: 0 auto 20px;
-	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	margin-bottom: 2rem;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .shortDescription {
-	font-size: 1.2em;
-	color: $secondary-color;
-	margin-bottom: 20px;
-	text-align: center;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	font-style: italic;
 }
 
 .rating-reviews {
 	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
-	gap: 20px;
-}
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	font-size: 1.1rem;
 
-.rating,
-.reviews {
-	font-weight: bold;
-	color: $primary-color;
+	.rating,
+	.reviews {
+		background-color: #000;
+		color: #fff;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+	}
 }
 
 .section-title {
-	font-size: 2em;
-	color: $primary-color;
-	margin-top: 30px;
-	margin-bottom: 20px;
-	text-align: center;
-	position: relative;
-}
-
-.section-title::after {
-	content: "";
-	display: block;
-	width: 50px;
-	height: 3px;
-	background: $primary-color;
-	margin: 10px auto 0;
+	font-size: 2rem;
+	font-weight: 600;
+	margin-top: 3rem;
+	margin-bottom: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 
 .tour {
-	margin-bottom: 30px;
-	padding: 20px;
-	border: 1px solid $border-color;
-	background-color: $hover-color;
-	transition: background-color 0.3s, transform 0.3s;
-	text-align: center;
+	background-color: #fff;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	.tour-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.tour-description {
+		font-size: 1rem;
+		line-height: 1.6;
+		margin-bottom: 1rem;
+	}
+
+	.tour-duration,
+	.tour-price {
+		font-size: 1rem;
+		font-weight: 600;
+		display: inline-block;
+		margin-right: 1rem;
+		background-color: #f0f0f0;
+		padding: 0.3rem 0.8rem;
+		border-radius: 15px;
+	}
 }
 
-.tour:hover {
-	background-color: $primary-color;
-	transform: scale(1.05);
-	color: $background-color;
-}
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
 
-.tour-title {
-	font-size: 1.5em;
-	color: $primary-color;
-	margin-bottom: 10px;
-}
+	.title {
+		font-size: 2rem;
+	}
 
-.tour-description,
-.tour-duration,
-.tour-price {
-	font-size: 1.1em;
-	color: $secondary-color;
-	margin-bottom: 5px;
-}
-
-.tour-description {
-	margin-bottom: 15px;
+	.rating-reviews {
+		flex-direction: column;
+		gap: 1rem;
+	}
 }

@@ -1,5 +1,6 @@
 /** @format */
 import YssykKul from "../../assets/img/yssyk-kul.jpg"
+import Osh from "../../assets/img/osh.jpg"
 const initialState = {
 	tours: [
 		{
@@ -37,7 +38,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -66,7 +67,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -95,7 +96,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -124,7 +125,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -153,7 +154,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -182,7 +183,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
@@ -211,7 +212,7 @@ const initialState = {
 			shortDescription: "One of the oldest cities in Central Asia",
 			longDescription:
 				"Osh is known for its rich history, vibrant bazaars, and the sacred Sulaiman-Too mountain.",
-			imageUrl: "/images/osh.jpg",
+			imageUrl: Osh,
 			rating: 4.6,
 			reviews: 180,
 			tours: [
