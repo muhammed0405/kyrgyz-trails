@@ -10,8 +10,20 @@ const initialState = {
 			longDescription:
 				"Issyk-Kul is famous for its beautiful lake surrounded by snow-capped mountains. It offers beaches, hot springs, and various outdoor activities.",
 			imageUrl: YssykKul,
-			rating: 4.8,
-			reviews: 230,
+			comments: [
+				{
+					id: 1000,
+					name: "John Doe",
+					stars: 5,
+					comment: "Great tour!",
+				},
+				{
+					id: 1000,
+					name: "John Doe",
+					stars: 5,
+					comment: "Great tour!",
+				},
+			],
 			tours: [
 				{
 					id: 101,
@@ -236,6 +248,7 @@ const initialState = {
 			],
 		},
 	],
+
 	loading: false,
 	error: null,
 }

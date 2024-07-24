@@ -1,6 +1,6 @@
 /** @format */
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import styles from "../../styles/formStyles.module.scss"
 
@@ -9,9 +9,22 @@ export default function Register() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 
+	useEffect(() => {
+		const labels = document.querySelectorAll(`.${styles.label}`)
+		labels.forEach(label => {
+			const text = (label as HTMLElement).innerText
+			label.innerHTML = text
+				.split("")
+				.map(
+					(letter: string, idx: number) =>
+						`<span style="transition-delay:${idx * 50}ms">${letter}</span>`
+				)
+				.join("")
+		})
+	}, [])
+
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
-		// Handle registration logic here
 		console.log("Register:", { username, email, password })
 	}
 
@@ -23,9 +36,6 @@ export default function Register() {
 					<h3 className={styles.switchLink}>Если вы Гид то вам сюда</h3>
 				</Link>
 				<div className={styles.inputGroup}>
-					<label htmlFor="username" className={styles.label}>
-						Username
-					</label>
 					<input
 						type="text"
 						id="username"
@@ -33,12 +43,13 @@ export default function Register() {
 						value={username}
 						onChange={e => setUsername(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="username" className={styles.label}>
+						Имя
+					</label>
 				</div>
 				<div className={styles.inputGroup}>
-					<label htmlFor="email" className={styles.label}>
-						Email
-					</label>
 					<input
 						type="email"
 						id="email"
@@ -46,12 +57,13 @@ export default function Register() {
 						value={email}
 						onChange={e => setEmail(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="email" className={styles.label}>
+						Электронная почта
+					</label>
 				</div>
 				<div className={styles.inputGroup}>
-					<label htmlFor="password" className={styles.label}>
-						Password
-					</label>
 					<input
 						type="password"
 						id="password"
@@ -59,13 +71,17 @@ export default function Register() {
 						value={password}
 						onChange={e => setPassword(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="password" className={styles.label}>
+						Пароль
+					</label>
 				</div>
 				<button type="submit" className={styles.submitButton}>
 					Зарегистрироваться
 				</button>
 				<Link href="/auth/login" className={styles.switchLink}>
-					Already have an account? Login
+					Уже есть аккаунт? Войти
 				</Link>
 			</form>
 		</div>

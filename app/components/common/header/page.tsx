@@ -29,10 +29,10 @@ const Header = () => {
 					</button>
 				</div>
 				<div className={styles.authLinks}>
-					<Link href="/pages/login_user" className={styles.loginBtn}>
+					<Link href="/auth/login_user" className={styles.loginBtn}>
 						Войти
 					</Link>
-					<Link href="/pages/register_user" className={styles.registerBtn}>
+					<Link href="/auth/register_user" className={styles.registerBtn}>
 						Регистрация
 					</Link>
 				</div>
