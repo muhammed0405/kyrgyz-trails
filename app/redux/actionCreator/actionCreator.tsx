@@ -17,7 +17,6 @@ export const getUsers =
 				payload: response.data,
 			})
 
-			console.log(response.data)
 		} catch (error) {
 			dispatch({
 				type: userActionsTypes.GET_USER_ERROR,

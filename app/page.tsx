@@ -41,7 +41,7 @@ export default function Home() {
 					{regions.map(tour => (
 						<Link
 							href={`/pages/regions/${tour.tours.id}`}
-							key={tour.id}
+						key={tour.id}
 						>
 							<div key={tour} className={styles.tourCard}>
 								<h3>{tour.name}</h3>
