@@ -5,8 +5,13 @@ import Image from "next/image"
 import styles from "../../../styles/regions_details.module.scss"
 import { useTypedSelectorHook } from "@/app/Redux/customHooks/useTypedSelectorHook"
 import { notFound } from "next/navigation"
+import { useEffect } from "react"
+import { UseTypedDispatch } from "@/app/Redux/customHooks/useTypedDispatch"
 
 export default function RegionPage({ params }: { params: { id: string } }) {
+	const tour = useTypedSelectorHook(state => state.tours.tour)
+	const { getTours } = UseTypedDispatch()
+
 	const region = useTypedSelectorHook(state =>
 		state.tours.tours.find(r => r.id === parseInt(params.id, 10))
 	)
@@ -14,7 +19,11 @@ export default function RegionPage({ params }: { params: { id: string } }) {
 	if (!region) {
 		notFound()
 	}
+	useEffect(() => {
+		getTours()
+	}, [])
 
+	console.log("tour", tour)
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.title}>{region.name}</h1>

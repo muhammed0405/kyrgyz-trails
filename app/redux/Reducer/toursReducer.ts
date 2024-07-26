@@ -249,6 +249,10 @@ const initialState = {
 		},
 	],
 
+	tour: [
+
+	],
+
 	loading: false,
 	error: null,
 }
@@ -268,6 +272,14 @@ export const toursReducer = (
 
 		case "GET_TOURS_ERROR":
 			return { ...state, loading: false, error: action.payload }
+
+			case "GET_USER_TOURS_SUCCESS":
+			return {
+				...state,
+				tour: [...state.tour, action.payload],
+				loading: false,
+				error: null,
+			}
 
 		default:
 			return state
