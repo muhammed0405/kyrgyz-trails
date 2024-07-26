@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../styles/search.module.scss'
 const Search = () => {
+
 	return (
 		
 			<div className={styles.searchBar}>

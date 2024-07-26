@@ -39,7 +39,7 @@ export default function Home() {
 				<h2>Все области</h2>
 				<div className={styles.tourGrid}>
 					{regions.map(tour => (
-						<Link href={`/pages/regions/${tour.id}`} key={tour.id}>
+						<Link href={`/pages/region-details/${tour.id}`} key={tour.id}>
 							<div key={tour} className={styles.tourCard}>
 								<h3>{tour.name}</h3>
 								<h3>{tour.id} id</h3>

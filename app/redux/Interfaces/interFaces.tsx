@@ -1,6 +1,6 @@
 /** @format */
 
-import { userActionsTypes } from "../actionTypes/actionTypes"
+import { userActionsTypes } from '../actionTypes/actionTypes'
 
 interface Geo {
 	lat: string
@@ -49,6 +49,8 @@ export interface IUserError {
 export interface IUserLoading {
 	type: userActionsTypes.GET_USER_LOADING
 	payload: boolean
+
 }
+
 
 export type IUserAction = IUserSuccess | IUserError | IUserLoading
