@@ -11,7 +11,7 @@ const initialState : ITourState = {
 			shortDescription: "Home to the world's second-largest saline lake",
 			longDescription:
 				"Issyk-Kul is famous for its beautiful lake surrounded by snow-capped mountains. It offers beaches, hot springs, and various outdoor activities.",
-			imageUrl: YssykKul.src,
+			imageUrl: YssykKul,
 			rating: 4.8,
 			reviews: 230,
 			tours: [
@@ -261,6 +261,7 @@ const initialState : ITourState = {
 			],
 		},
 	],
+
 	loading: false,
 	error: null,
 }

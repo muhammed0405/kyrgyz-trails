@@ -1,6 +1,6 @@
 /** @format */
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "../../styles/formStyles.module.scss"
 
 export default function GuideRegister() {
@@ -11,10 +11,22 @@ export default function GuideRegister() {
 	const [resume, setResume] = useState<File | null>(null)
 	const [showEmailSent, setShowEmailSent] = useState(false)
 
+	useEffect(() => {
+		const labels = document.querySelectorAll(`.${styles.label}`)
+		labels.forEach(label => {
+			const text = (label as HTMLElement).innerText
+			label.innerHTML = text
+				.split("")
+				.map(
+					(letter: string, idx: number) =>
+						`<span style="transition-delay:${idx * 50}ms">${letter}</span>`
+				)
+				.join("")
+		})
+	}, [])
+
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
-		// Here you would typically send the data to your backend
-		// For this example, we'll just simulate a successful submission
 		console.log("Guide Register:", {
 			firstName,
 			lastName,
@@ -36,9 +48,6 @@ export default function GuideRegister() {
 			<form className={styles.authForm} onSubmit={handleSubmit}>
 				<h2 className={styles.authTitle}>Регистрация Гида </h2>
 				<div className={styles.inputGroup}>
-					<label htmlFor="firstName" className={styles.label}>
-						Имя
-					</label>
 					<input
 						type="text"
 						id="firstName"
@@ -46,12 +55,13 @@ export default function GuideRegister() {
 						value={firstName}
 						onChange={e => setFirstName(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="firstName" className={styles.label}>
+						Имя
+					</label>
 				</div>
 				<div className={styles.inputGroup}>
-					<label htmlFor="lastName" className={styles.label}>
-						Фамилия
-					</label>
 					<input
 						type="text"
 						id="lastName"
@@ -59,12 +69,13 @@ export default function GuideRegister() {
 						value={lastName}
 						onChange={e => setLastName(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="lastName" className={styles.label}>
+						Фамилия
+					</label>
 				</div>
 				<div className={styles.inputGroup}>
-					<label htmlFor="email" className={styles.label}>
-						Электронная почта
-					</label>
 					<input
 						type="email"
 						id="email"
@@ -72,12 +83,13 @@ export default function GuideRegister() {
 						value={email}
 						onChange={e => setEmail(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="email" className={styles.label}>
+						Электронная почта
+					</label>
 				</div>
 				<div className={styles.inputGroup}>
-					<label htmlFor="password" className={styles.label}>
-						Пароль
-					</label>
 					<input
 						type="password"
 						id="password"
@@ -85,11 +97,14 @@ export default function GuideRegister() {
 						value={password}
 						onChange={e => setPassword(e.target.value)}
 						required
+						placeholder=" "
 					/>
+					<label htmlFor="password" className={styles.label}>
+						Пароль
+					</label>
 				</div>
-
 				<div className={styles.inputGroup}>
-					<label htmlFor="resume" className={styles.label}>
+					<label htmlFor="resume" className={styles.fileLabel}>
 						Resume (PDF)
 					</label>
 					<input
