@@ -1,6 +1,7 @@
 /** @format */
 
 .container {
+	position: relative;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 2rem;
@@ -10,6 +11,10 @@
 }
 
 .title {
+	position:absolute;
+top: 8%;
+left: 40%;
+color: #f0f0f0;
 	font-size: 3rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -20,8 +25,9 @@
 }
 
 .image {
+	
 	width: 100%;
-	height: auto;
+	height: 250px;
 	object-fit: cover;
 	margin-bottom: 2rem;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -57,29 +63,58 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
+.tourCardsWrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
 
-.tour {
+.tourCard {
 	background-color: #fff;
-	padding: 1.5rem;
-	margin-bottom: 2rem;
+	width: 250px;
 	border-radius: 8px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 	transition: transform 0.3s ease;
 
 	&:hover {
 		transform: translateY(-5px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		
 	}
+	.tour-image {
+		padding: 0 auto;
+		margin: 0 auto;
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		margin-bottom: 1rem;
+		border-radius: 8px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		transition: transform 0.3s ease;
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
 
 	.tour-title {
-		font-size: 1.5rem;
+		font-size: 0.8rem;
 		font-weight: 600;
 		margin-bottom: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+color: #000;
+		&:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
 	}
 
 	.tour-description {
 		font-size: 1rem;
 		line-height: 1.6;
 		margin-bottom: 1rem;
+		color: #807d7d;
 	}
 
 	.tour-duration,
