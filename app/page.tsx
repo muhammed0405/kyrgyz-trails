@@ -1,25 +1,23 @@
 /** @format */
-'use client'
-import axios from 'axios'
-import Link from 'next/link'
-import { useEffect } from 'react'
-import Search from './components/search/search'
-import { UseTypedDispatch } from './Redux/customHooks/useTypedDispatch'
-import { useTypedSelectorHook } from './Redux/customHooks/useTypedSelectorHook'
-import styles from './styles/page.module.scss'
+"use client"
+import axios from "axios"
+import Link from "next/link"
+import { useEffect } from "react"
+import Search from "./components/search/search"
+import { UseTypedDispatch } from "./Redux/customHooks/useTypedDispatch"
+import { useTypedSelectorHook } from "./Redux/customHooks/useTypedSelectorHook"
+import styles from "./styles/page.module.scss"
 import Image from "next/image"
 
 export default function Home() {
-	const regions = useTypedSelectorHook((state) => state.tours.tours)
+	const regions = useTypedSelectorHook(state => state.tours.tours)
 	const { getRegions } = UseTypedDispatch()
-
-
 
 	useEffect(() => {
 		getRegions()
-
-
 	}, [])
+
+	console.log("regions", regions)
 	return (
 		<div className={styles.homePage}>
 			<section className={styles.hero}>
@@ -33,8 +31,8 @@ export default function Home() {
 			<section className={styles.featuredDestinations}>
 				<h2>Популярные направления</h2>
 				<div className={styles.destinationGrid}>
-					{['Иссык-Куль', 'Ала-Арча', 'Сон-Куль', 'Джети-Огуз'].map(
-						(destination) => (
+					{["Иссык-Куль", "Ала-Арча", "Сон-Куль", "Джети-Огуз"].map(
+						destination => (
 							<div key={destination} className={styles.destinationCard}>
 								<h3>{destination}</h3>
 							</div>
@@ -46,14 +44,21 @@ export default function Home() {
 			<section className={styles.popularTours}>
 				<h2>Все области</h2>
 				<div className={styles.tourGrid}>
-					{regions.map((tour) => (
-						<Link href={`/pages/region-details/${tour.id}`} key={tour.id}>
-							<div key={tour} className={styles.tourCard}>
-								<h3>{tour.name}</h3>
-								<p>{tour.content}</p>
-								<Image src={tour.image} alt={tour.name} width={200} height={150} />
-							</div>
-						</Link>
+					{regions.map((regionTours, index) => (
+						<div key={index} className={styles.regionSection}>
+							{regionTours.map(el => (
+								<div key={el.name} className={styles.tourCard}>
+									<h3>{el.name}</h3>
+									<p>{el.content}</p>
+									<Image
+										src={el.image}
+										alt={el.name}
+										width={200}
+										height={150}
+									/>
+								</div>
+							))}
+						</div>
 					))}
 				</div>
 			</section>
@@ -61,5 +66,5 @@ export default function Home() {
 	)
 }
 function useTypedDispatch(): { getRegions: any } {
-	throw new Error('Function not implemented.')
+	throw new Error("Function not implemented.")
 }

@@ -9,8 +9,17 @@ export const getRegions = () => async (dispatch: Dispatch) => {
 		const response = await axios.get("http://127.0.0.1:8000/api/locations/", {
 			withCredentials: true,
 		})
-		console.log(response.data)
+
+		dispatch({
+			type: userActionsTypes.GET_LOCATIONS,
+			payload: response.data,
+		})
+		console.log("it is working", response.data)
 	} catch (error) {
+		dispatch({
+			type: userActionsTypes.GET_LOCATIONS_ERROR,
+			payload: error.message || "Error fetching data",
+		})
 		console.error("Error fetching data:", error.message)
 	}
 }
