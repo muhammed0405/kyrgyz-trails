@@ -26,12 +26,12 @@ export const getRegions = () => async (dispatch: Dispatch) => {
 
 export const getTours = () => async (dispatch: Dispatch) => {
 	try {
-		const response = await axios.get("http://127.0.0.1:8000/admin/main/tour/")
+		const response = await axios.get("http://127.0.0.1:8000/api/tours/")
 		dispatch({
 			type: userActionsTypes.GET_USER_TOURS_SUCCESS,
 			payload: response.data,
 		})
-		console.log("response.data", response.data)
+		console.log("response.data_", response.data)
 	} catch (error) {
 		dispatch({
 			type: userActionsTypes.GET_USER_TOURS_ERROR,
