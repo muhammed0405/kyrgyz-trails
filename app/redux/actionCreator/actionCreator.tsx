@@ -26,7 +26,15 @@ export const getRegions = () => async (dispatch: Dispatch) => {
 
 export const getTours = () => async (dispatch: Dispatch) => {
 	try {
-		const response = await axios.get("http://127.0.0.1:8000/api/tours/")
+		const response = await axios.get(
+			"http://127.0.0.1:8000/api/tours/?format=json",
+			{
+				auth: {
+					username: "admin",
+					password: "1",
+				},
+			}
+		)
 		dispatch({
 			type: userActionsTypes.GET_USER_TOURS_SUCCESS,
 			payload: response.data,

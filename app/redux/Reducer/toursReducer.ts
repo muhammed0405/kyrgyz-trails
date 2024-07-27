@@ -1,7 +1,7 @@
 /** @format */
 
-import { userActionsTypes } from '../actionTypes/actionTypes'
-import { ITourState } from '../Interfaces/tourReducerType'
+import { userActionsTypes } from "../actionTypes/actionTypes"
+import { ITourState } from "../Interfaces/tourReducerType"
 const initialState: ITourState = {
 	regions: [],
 	tours: [],
@@ -17,18 +17,18 @@ export const toursReducer = (
 		case userActionsTypes.GET_LOCATIONS:
 			return {
 				...state,
-				regions: [action.payload],
+				regions: action.payload,
 				loading: false,
 				error: null,
 			}
 
-		case 'GET_LOCATIONS_ERROR':
+		case "GET_LOCATIONS_ERROR":
 			return { ...state, loading: false, error: action.payload }
 
 		case userActionsTypes.GET_USER_TOURS_SUCCESS:
 			return {
 				...state,
-				tours: [...state.tours, action.payload],
+				tours: action.payload,
 				loading: false,
 				error: null,
 			}
