@@ -12,34 +12,10 @@ export default function Home() {
 	const regions = useTypedSelectorHook((state) => state.tours.tours)
 	const { getRegions } = UseTypedDispatch()
 
-	const fetchData = async () => {
-		try {
-			const response = await axios.get('http://127.0.0.1:8000/api/locations/', {
-				headers: {
-					Accept: 'application/json',
-					Authorization: 'Basic YWRtaW46MQ==',
-					'X-CSRFToken':
-						'v4pgv6dma9yINO2iflZxsIxIoLkOUgZGaIZl0HTMqYQyPd8S5fpqujuxiaReBKga',
-				},
-			})
-			console.log(response.data)
-		} catch (error) {
-			if (error.response) {
-				console.error('Response error:', error.response.data)
-				console.error('Response status:', error.response.status)
-				console.error('Response headers:', error.response.headers)
-			} else if (error.request) {
-				console.error('Request error:', error.request)
-			} else {
-				console.error('Error message:', error.message)
-			}
-			console.error('Config:', error.config)
-		}
-	}
+
 
 	useEffect(() => {
-		fetchData()
-		// getRegions()
+		getRegions()
 	}, [])
 	return (
 		<div className={styles.homePage}>
