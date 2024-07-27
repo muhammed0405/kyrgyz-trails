@@ -7,6 +7,7 @@ import Search from './components/search/search'
 import { UseTypedDispatch } from './Redux/customHooks/useTypedDispatch'
 import { useTypedSelectorHook } from './Redux/customHooks/useTypedSelectorHook'
 import styles from './styles/page.module.scss'
+import Image from "next/image"
 
 export default function Home() {
 	const regions = useTypedSelectorHook((state) => state.tours.tours)
@@ -16,6 +17,8 @@ export default function Home() {
 
 	useEffect(() => {
 		getRegions()
+
+
 	}, [])
 	return (
 		<div className={styles.homePage}>
@@ -47,7 +50,8 @@ export default function Home() {
 						<Link href={`/pages/region-details/${tour.id}`} key={tour.id}>
 							<div key={tour} className={styles.tourCard}>
 								<h3>{tour.name}</h3>
-								<h3>{tour.id} id</h3>
+								<p>{tour.content}</p>
+								<Image src={tour.image} alt={tour.name} width={200} height={150} />
 							</div>
 						</Link>
 					))}
