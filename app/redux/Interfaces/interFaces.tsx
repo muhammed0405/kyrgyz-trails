@@ -38,6 +38,23 @@ export interface IUserState {
 	error: string | null
 }
 
+export interface ILocation {
+	name: string
+	title: string
+	content: string
+	image: string
+}
+
+export interface ILocationsSuccess {
+	type: userActionsTypes.GET_LOCATIONS
+	payload: ILocation[]
+}
+
+export interface ILocationsError {
+	type: userActionsTypes.GET_LOCATIONS_ERROR
+	payload?: string
+}
+
 export interface IUserSuccess {
 	type: userActionsTypes.GET_USER_SUCCESS
 	payload: IUserType
@@ -49,8 +66,11 @@ export interface IUserError {
 export interface IUserLoading {
 	type: userActionsTypes.GET_USER_LOADING
 	payload: boolean
-
 }
 
-
-export type IUserAction = IUserSuccess | IUserError | IUserLoading
+export type IUserAction =
+	| IUserSuccess
+	| IUserError
+	| IUserLoading
+	| ILocationsSuccess
+	| ILocationsError
