@@ -9,7 +9,31 @@
 	color: #9a3131;
 	background-color: #f8f8f8;
 }
+.toursCard {
 
+	width: 350px;
+	height: 400px;
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	}
+	.Image{
+		width: 200px;
+		height: 200px;
+		object-fit: cover;
+		margin-bottom: 1rem;
+		border-radius: 8px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
 .title {
 	position:absolute;
 top: 8%;
