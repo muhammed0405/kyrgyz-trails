@@ -1,142 +1,99 @@
 /** @format */
-'use client'
-import axios from 'axios'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-import styles from '../../styles/formStyles.module.scss'
+
+"use client"
+import React, { useState, useEffect } from "react"
+import Link from "next/link"
+import styles from "../../styles/formStyles.module.scss"
 
 export default function Register() {
-	const [username, setUsername] = useState('')
-	const [email, setEmail] = useState('')
-	const [password1, setPassword1] = useState('')
-	const [password2, setPassword2] = useState('')
-	const [error, setError] = useState('')
-	const router = useRouter()
+	const [name, setName] = useState("")
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
+	const [confirmPassword, setConfirmPassword] = useState("")
 
 	useEffect(() => {
 		const labels = document.querySelectorAll(`.${styles.label}`)
-		labels.forEach((label) => {
+		labels.forEach(label => {
 			const text = (label as HTMLElement).innerText
 			label.innerHTML = text
-				.split('')
+				.split("")
 				.map(
 					(letter: string, idx: number) =>
 						`<span style="transition-delay:${idx * 50}ms">${letter}</span>`
 				)
-				.join('')
+				.join("")
 		})
 	}, [])
 
-	const handleSubmit = async (e: React.FormEvent) => {
+	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
-		setError('')
-
-		if (password1 !== password2) {
-			setError('Passwords do not match')
-			return
-		}
-
-		try {
-			console.log('Sending POST request to /accounts/signup/')
-			const response = await axios.post(
-				'http://127.0.0.1:8000/accounts/signup/',
-				{
-					email,
-					username,
-					password1,
-					password2,
-				},
-				{
-					withCredentials: true,
-				}
-			)
-
-			console.log('Registration successful:', response.data)
-			// Redirect to login page or dashboard
-			router.push('/auth/login')
-		} catch (error) {
-			if (axios.isAxiosError(error) && error.response) {
-				// The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
-				console.error('Registration error:', error.response.data)
-				setError(JSON.stringify(error.response.data))
-			} else {
-				// Something happened in setting up the request that triggered an Error
-				console.error('Error', error)
-				setError('An unexpected error occurred')
-			}
-		}
+		console.log("Регистрация:", { name, email, password, confirmPassword })
 	}
 
 	return (
 		<div className={styles.authContainer}>
 			<form className={styles.authForm} onSubmit={handleSubmit}>
 				<h2 className={styles.authTitle}>Регистрация</h2>
-				{error && <div className={styles.error}>{error}</div>}
-				<Link href='/auth/register_guide'>
-					<h3 className={styles.switchLink}>Если вы Гид то вам сюда</h3>
-				</Link>
 				<div className={styles.inputGroup}>
 					<input
-						type='email'
-						id='email'
+						type="email"
+						id="email"
 						className={styles.input}
 						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+						onChange={e => setEmail(e.target.value)}
 						required
-						placeholder=' '
+						placeholder=" "
 					/>
-					<label htmlFor='email' className={styles.label}>
+					<label htmlFor="email" className={styles.label}>
 						Электронная почта
 					</label>
 				</div>
 				<div className={styles.inputGroup}>
 					<input
-						type='text'
-						id='username'
+						type="text"
+						id="name"
 						className={styles.input}
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
+						value={name}
+						onChange={e => setName(e.target.value)}
 						required
-						placeholder=' '
+						placeholder=" "
 					/>
-					<label htmlFor='username' className={styles.label}>
-						Имя
+					<label htmlFor="name" className={styles.label}>
+						Имя и фамилия
 					</label>
 				</div>
 				<div className={styles.inputGroup}>
 					<input
-						type='password'
-						id='password1'
+						type="password"
+						id="password"
 						className={styles.input}
-						value={password1}
-						onChange={(e) => setPassword1(e.target.value)}
+						value={password}
+						onChange={e => setPassword(e.target.value)}
 						required
-						placeholder=' '
+						placeholder=" "
 					/>
-					<label htmlFor='password1' className={styles.label}>
+					<label htmlFor="password" className={styles.label}>
 						Пароль
 					</label>
 				</div>
 				<div className={styles.inputGroup}>
 					<input
-						type='password'
-						id='password2'
+						type="password"
+						id="confirmPassword"
 						className={styles.input}
-						value={password2}
-						onChange={(e) => setPassword2(e.target.value)}
+						value={confirmPassword}
+						onChange={e => setConfirmPassword(e.target.value)}
 						required
-						placeholder=' '
+						placeholder=" "
 					/>
-					<label htmlFor='password2' className={styles.label}>
-						Подтвердить Пароль
+					<label htmlFor="confirmPassword" className={styles.label}>
+						Подтверждение пароля
 					</label>
 				</div>
-				<button type='submit' className={styles.submitButton}>
+				<button type="submit" className={styles.submitButton}>
 					Зарегистрироваться
 				</button>
-				<Link href='/auth/login' className={styles.switchLink}>
+				<Link href="/auth/login" className={styles.switchLink}>
 					Уже есть аккаунт? Войти
 				</Link>
 			</form>
